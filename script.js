@@ -1,6 +1,6 @@
 $(document).ready(function () {
 var currentTimeDiv=$("#currentDay");
-var currentTime=moment().format('hh:mm a')
+var currentTime=moment().format('MMMM Do YYYY, h:mm:ss a');
 currentTimeDiv.text(currentTime);
 
 var hours=[
@@ -54,6 +54,8 @@ var hours=[
     }
 ];
 
+var currentHour=moment().hour();
+console.log(currentHour);
 
 for(var b=0; b<hours.length; b++){
     var storedItems = JSON.parse(localStorage.getItem("itemHour"+b));
@@ -65,6 +67,7 @@ for(var b=0; b<hours.length; b++){
 };
 
 var i=0;
+var c=7;
 hours.forEach(element => {
 
     var newRow=$("<form>");
@@ -78,7 +81,17 @@ hours.forEach(element => {
     newRow.append(newColHour);
 
     var newColText=$("<div>");
-    newColText.addClass("col-9 row past textarea");
+
+    if(currentHour==c){
+        newColText.addClass("col-9 row present textarea");
+    }
+    else if(currentHour>c){
+        newColText.addClass("col-9 row past textarea");
+    }
+    else{
+        newColText.addClass("col-9 row future textarea");
+    }
+    //newColText.addClass("col-9 row past textarea");
     newRow.append(newColText);
 
     var newInput=$("<textarea>");
@@ -99,6 +112,7 @@ hours.forEach(element => {
 
     newColSave.append(saveIcon);
     i++;
+    c++;
 });
 
 
