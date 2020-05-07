@@ -45,41 +45,6 @@
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script>
-      var currentTime=$("#currentDay");
-      currentTime.text(moment().format('h a'));
-
-      var hours=["12 am","01 am" ,"02 am","03 am","04 am","05 am","06 am","07 am","08 am","09 am","10 am","11 am","12 pm","01 pm" ,"02 pm","03 pm","04 pm","05 pm","06 pm","07 pm","08 pm","09 pm","10 pm","11 pm"];
-
-      hours.forEach(element => {
-        var newRow=$("<div>");
-        newRow.attr("id", element);
-        newRow.attr("class","row");
-        $(".container").append(newRow);
-
-        var newColHour=$("<div>");
-        newColHour.addClass("col-2 time-block hour row");
-        newColHour.text(element);
-        newRow.append(newColHour);
-
-        var newColText=$("<div>");
-        newColText.addClass("col-9 row present textarea");
-        newRow.append(newColText); 
-
-        var newColSave=$("<div>");
-        newColSave.addClass("col-1 row saveBtn");
-        newRow.append(newColSave);
-
-        var saveIcon=$("<i>");
-        saveIcon.addClass("fas fa-save");
-        newColSave.append(saveIcon);
-
-      });
-
-      function timeValidator(){
-        
-      };
-
-    </script>
+    <script src="./script.js"></script>
   </body>
 </html>
