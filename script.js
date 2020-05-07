@@ -3,7 +3,6 @@ var currentTimeDiv=$("#currentDay");
 var currentTime=moment().format('hh:mm a')
 currentTimeDiv.text(currentTime);
 
-var items=[];
 var hours=[
     {
         hour: moment().startOf("day").add(7, "hours").format("hh:mm a"),
@@ -61,9 +60,9 @@ for(var b=0; b<hours.length; b++){
     //console.log(storedItems);
     if(storedItems !== null){
         hours[b]=storedItems;
-    }
+    };
     //console.log(hours[b]);
-}
+};
 
 var i=0;
 hours.forEach(element => {
